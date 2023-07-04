@@ -20,15 +20,21 @@ module.exports = {
                 test: /\.css$/i,
                 use: [MiniCssExtractPlugin.loader, "css-loader"],
             },
+            {
+                test: /\.(woff|woff2)$/,
+                use: {
+                    loader: 'url-loader',
+                },
+            },
         ],
     },
     optimization: {
         minimizer: [
-          `...`,
-          new CssMinimizerPlugin(),
+            `...`,
+            new CssMinimizerPlugin(),
         ],
-      },
+    },
     resolve: {
-      extensions: ['', '.js', '.jsx'],
+        extensions: ['', '.js', '.jsx'],
     }
 };
